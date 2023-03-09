@@ -8,10 +8,10 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <Button x:Name="stop" Content="Пауза" HorizontalAlignment="Right" VerticalAlignment="Center" Width="78" Click="stop_Click" Grid.Column="2" Grid.Row="1"/>
-        <Button x:Name="next" Content="Далее" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="next_Click" Grid.Column="2" Grid.Row="1" Width="90"/>
-        <Button x:Name="prev" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Center" Click="prev_Click" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="1"  Width="84"/>
-        <Button x:Name="mix" Content="Перемешать" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="128" Grid.Row="2" Grid.Column="2" Height="20" Click="mix_Click">
+        <Button x:Name="stop" Content="Пауза" HorizontalAlignment="Right" VerticalAlignment="Center" Click="stop_Click" Grid.Column="2" Grid.Row="1"/>
+        <Button x:Name="next" Content="Далее" HorizontalAlignment="Center"  VerticalAlignment="Center" Click="next_Click" Grid.Column="2" Grid.Row="1"/>
+        <Button x:Name="prev" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Center" Click="prev_Click" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="1"/>
+        <Button x:Name="mix" Content="Перемешать" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="2" Click="mix_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1"/>
@@ -22,17 +22,16 @@
             </Button.RenderTransform>
         </Button>
 
-        <MediaElement x:Name="audio" MediaOpened="audio_MediaOpened" LoadedBehavior="Manual"/>
+        <MediaElement x:Name="audio" MediaOpened="audio_MediaOpened" LoadedBehavior="Manual" MediaEnded="audio_MediaEnded"/>
 
-        <ComboBox x:Name="musicList" VerticalAlignment="Top" Width="722" SelectionChanged="musicList_SelectionChanged" Grid.ColumnSpan="3" Margin="39,46,39,0"/>
-        <Slider HorizontalAlignment="Center" VerticalAlignment="Center" Width="92" Grid.Column="0" Grid.Row="1">
-        </Slider>
-        <Slider x:Name="musictime" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="267" Height="39" ValueChanged="Slider_ValueChanged" Grid.Row="1" Grid.RowSpan="2"/>
-        <Button x:Name="restart" Content="Повтор" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Button_Click" Width="134" Grid.Column="2" Grid.Row="1"/>
-        <Button x:Name="open"  Grid.ColumnSpan="3" Content="открыть папку!" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click_1" Width="769"/>
-        <TextBlock x:Name="timestart" HorizontalAlignment="Left" Text="00:00" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
-        <TextBlock x:Name="timelast" HorizontalAlignment="Right"  Text="00:00" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
-        <TextBlock x:Name="musicname" Grid.ColumnSpan="3" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="22" Width="722"/>
+        <ComboBox x:Name="musicList" VerticalAlignment="Center" SelectionChanged="musicList_SelectionChanged" Grid.Column="1" Grid.Row="0" />
+        <Slider x:Name="volume" HorizontalAlignment="Center" VerticalAlignment="Center" Width="92" Grid.Column="0" Grid.Row="1" ValueChanged="Slider_ValueChanged_1" LargeChange="0.1" Maximum="1"/>
+        <Slider x:Name="musictime" HorizontalAlignment="Center"  VerticalAlignment="Top" ValueChanged="Slider_ValueChanged" Grid.Column="0"  Grid.Row="1"  Width="200" />
+        <Button x:Name="restart12" Content="Повтор" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="restart" Grid.Column="2" Grid.Row="1"/>
+        <Button x:Name="open"  Grid.Column="1" Grid.Row="0" Content="открыть папку!" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <TextBlock x:Name="timestart" HorizontalAlignment="Left" Text="00:00" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="1"/>
+        <TextBlock x:Name="timelast" HorizontalAlignment="Right"  Text="00:00" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="1"/>
+        <TextBlock x:Name="musicname" Grid.Column="1"  HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Bottom"/>
         <Grid.ColumnDefinitions>
             <ColumnDefinition ></ColumnDefinition>
             <ColumnDefinition ></ColumnDefinition>
